@@ -52,6 +52,10 @@ When using a NoSQL storage, there is a lot of new ways of thinking about your st
 
 You can store the entire dataframes within a single RowKey. Let's say you set a single market and a day as your partition. You set a stock as your row. Within the data, you can store a price prediction for every minute of that stock for that day. You can then use the partition and row indexes to retrieve specific objects as you need them.
 
+If you are getting Bad request on a valid entity creation, check out the size of the inserted data. When I was inserting dicts >= 33 KB I was getting the Bad request on create_entity.
+
+If you are getting the getaddr error, try to use a different connection string to your Azure storage account.
+
 Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for a simple how to guide.
 
 Interesting article about costs of data storage in Azure tables on large scale, how to delete them and how to think about the design of your storage to keep deletion in mind.
